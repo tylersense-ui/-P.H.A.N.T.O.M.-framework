@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-17T14:20:34.024Z",
+  "timestamp": "2026-03-17T15:54:56.651Z",
   "homeRAM": 8,
   "profiles": [
     {
@@ -24,7 +24,7 @@
     },
     {
       "script": "/tools/test-formulas.js",
-      "ram": 3.15,
+      "ram": 3.25,
       "category": "existing"
     },
     {

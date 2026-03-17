@@ -1,2 +1,0 @@
-# This file ensures the /state/ directory is tracked by git
-# Runtime JSON files will be generated here but not committed (.gitignore)

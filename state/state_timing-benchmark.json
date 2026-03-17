@@ -1,12 +1,12 @@
 {
   "target": "n00dles",
-  "timestamp": "2026-03-17T14:12:58.664Z",
+  "timestamp": "2026-03-17T15:40:03.931Z",
   "player": {
-    "hacking": 1,
+    "hacking": 3,
     "hackingMult": 1
   },
   "server": {
-    "currentSecurity": 1.056,
+    "currentSecurity": 1.024,
     "minSecurity": 1,
     "hackReq": 1,
     "serverGrowth": 3000
@@ -14,40 +14,40 @@
   "benchmarks": [
     {
       "operation": "weaken",
-      "predicted": 15808.383233532933,
-      "actual": 197115,
-      "error": 91.98012163785967,
+      "predicted": 15268.389662027834,
+      "actual": 189646,
+      "error": 91.94900516645338,
       "passed": false
     },
     {
       "operation": "grow",
-      "predicted": 12646.706586826347,
-      "actual": 154621,
-      "error": 91.820835082669,
-      "ratioToWeaken": 0.7844202622834386,
+      "predicted": 12214.711729622268,
+      "actual": 151699,
+      "error": 91.94806048186062,
+      "ratioToWeaken": 0.7999061409151788,
       "passed": false
     },
     {
       "operation": "hack",
-      "predicted": 3952.0958083832334,
-      "actual": 48320,
-      "error": 91.82099377404133,
-      "ratioToWeaken": 0.24513608807041576,
+      "predicted": 3817.0974155069584,
+      "actual": 47407,
+      "error": 91.94824094436062,
+      "ratioToWeaken": 0.24997627157968003,
       "passed": false
     }
   ],
   "goldStandard": {
-    "weakenTime": 193280.76923076922,
-    "growTime": 154624.61538461538,
-    "hackTime": 48320.192307692305,
+    "weakenTime": 189628.30188679247,
+    "growTime": 151702.64150943395,
+    "hackTime": 47407.07547169812,
     "ratios": {
-      "growToWeaken": 0.8,
+      "growToWeaken": 0.7999999999999998,
       "hackToWeaken": 0.25
     }
   },
   "vsNSAPI": {
-    "weakenError": 91.82102632535658,
-    "growError": 91.82102632535656,
-    "hackError": 91.82102632535658
+    "weakenError": 91.94825376269887,
+    "growError": 91.94825376269887,
+    "hackError": 91.94825376269887
   }
 }
