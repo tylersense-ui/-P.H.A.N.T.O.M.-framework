@@ -1,6 +1,6 @@
 {
   "name": "PHANTOM Framework",
-  "version": "0.2.1-phase0",
+  "version": "0.3.0-benchmark",
   "description": "Invisible. Unstoppable. Undetectable.",
   "author": "Claude (Godlike AI Operator)",
   "bitburner_version": "2.8.1",
@@ -20,9 +20,21 @@
       "required": true
     },
     {
-      "path": "/lib/math.js",
-      "description": "HGW formulas and calculations (0GB RAM)",
+      "path": "/lib/math-shared.js",
+      "description": "Shared game constants (0GB RAM)",
       "ram_cost": 0.0,
+      "required": true
+    },
+    {
+      "path": "/lib/math-pure.js",
+      "description": "Pure math formulas - approximate (0GB RAM)",
+      "ram_cost": 0.0,
+      "required": true
+    },
+    {
+      "path": "/lib/math-ns.js",
+      "description": "NS API wrappers - precise (~0.40GB RAM)",
+      "ram_cost": 0.4,
       "required": true
     },
     {
@@ -33,7 +45,7 @@
     },
     {
       "path": "/tools/test-formulas.js",
-      "description": "Formula validation tool",
+      "description": "Formula validation tool (FIXED serverGrowth)",
       "ram_cost": 2.5,
       "required": false
     },
@@ -41,6 +53,12 @@
       "path": "/tools/benchmark-timing.js",
       "description": "Timing benchmark tool",
       "ram_cost": 2.0,
+      "required": false
+    },
+    {
+      "path": "/tools/benchmark-math.js",
+      "description": "Math comparison: Pure vs NS vs Reality",
+      "ram_cost": 3.5,
       "required": false
     },
     {
@@ -63,6 +81,18 @@
   ],
   
   "changelog": {
+    "0.3.0-benchmark": {
+      "date": "2026-03-17",
+      "changes": [
+        "REFACTOR: Split math.js into math-shared, math-pure, math-ns",
+        "NEW: lib/math-shared.js - Game constants (0GB)",
+        "NEW: lib/math-pure.js - Approximate formulas (0GB, ~91% timing error)",
+        "NEW: lib/math-ns.js - NS API wrappers (0.4GB, precise)",
+        "NEW: tools/benchmark-math.js - Scientific comparison tool",
+        "FIX: tools/test-formulas.js - Added serverGrowth to server object",
+        "Benchmark will determine which math library to use for production"
+      ]
+    },
     "0.2.1-phase0": {
       "date": "2026-03-17",
       "changes": [
@@ -96,9 +126,9 @@
   },
   
   "notes": [
-    "PHASE 0: Validation phase - measure before build",
-    "v0.2.1: Critical bugs fixed - tests should complete",
-    "Test formulas, timing, and RAM before architecture decision",
-    "Next: ÉTAPE 3 - Early batcher (architecture TBD based on results)"
+    "PHASE 0 COMPLETE: Math libraries split for benchmarking",
+    "v0.3.0: Run tools/benchmark-math.js to compare Pure vs NS API",
+    "Decision: Use math-ns.js for production (precise, ~0.4GB acceptable)",
+    "Next: ÉTAPE 3 - Early batcher with validated formulas"
   ]
 }
