@@ -1,0 +1,53 @@
+{
+  "target": "n00dles",
+  "timestamp": "2026-03-17T14:12:58.664Z",
+  "player": {
+    "hacking": 1,
+    "hackingMult": 1
+  },
+  "server": {
+    "currentSecurity": 1.056,
+    "minSecurity": 1,
+    "hackReq": 1,
+    "serverGrowth": 3000
+  },
+  "benchmarks": [
+    {
+      "operation": "weaken",
+      "predicted": 15808.383233532933,
+      "actual": 197115,
+      "error": 91.98012163785967,
+      "passed": false
+    },
+    {
+      "operation": "grow",
+      "predicted": 12646.706586826347,
+      "actual": 154621,
+      "error": 91.820835082669,
+      "ratioToWeaken": 0.7844202622834386,
+      "passed": false
+    },
+    {
+      "operation": "hack",
+      "predicted": 3952.0958083832334,
+      "actual": 48320,
+      "error": 91.82099377404133,
+      "ratioToWeaken": 0.24513608807041576,
+      "passed": false
+    }
+  ],
+  "goldStandard": {
+    "weakenTime": 193280.76923076922,
+    "growTime": 154624.61538461538,
+    "hackTime": 48320.192307692305,
+    "ratios": {
+      "growToWeaken": 0.8,
+      "hackToWeaken": 0.25
+    }
+  },
+  "vsNSAPI": {
+    "weakenError": 91.82102632535658,
+    "growError": 91.82102632535656,
+    "hackError": 91.82102632535658
+  }
+}

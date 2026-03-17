@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-03-17T14:20:34.024Z",
+  "homeRAM": 8,
+  "profiles": [
+    {
+      "script": "/lib/debug.js",
+      "ram": 1.6,
+      "category": "existing"
+    },
+    {
+      "script": "/lib/format.js",
+      "ram": 1.6,
+      "category": "existing"
+    },
+    {
+      "script": "/lib/math.js",
+      "ram": 1.6,
+      "category": "existing"
+    },
+    {
+      "script": "/tools/scanner.js",
+      "ram": 3.15,
+      "category": "existing"
+    },
+    {
+      "script": "/tools/test-formulas.js",
+      "ram": 3.15,
+      "category": "existing"
+    },
+    {
+      "script": "/tools/benchmark-timing.js",
+      "ram": 3.1,
+      "category": "existing"
+    },
+    {
+      "script": "monitor-minimal",
+      "ram": 2.9,
+      "category": "test",
+      "description": "Minimal monitor (no imports, basic loop)"
+    },
+    {
+      "script": "monitor-debug",
+      "ram": 2.9,
+      "category": "test",
+      "description": "Monitor with Debug import"
+    },
+    {
+      "script": "monitor-math",
+      "ram": 3.4,
+      "category": "test",
+      "description": "Monitor with Debug + Math + getPlayer"
+    },
+    {
+      "script": "analyzer-heavy",
+      "ram": 2.1,
+      "category": "test",
+      "description": "Full analyzer with all imports"
+    }
+  ],
+  "budgets": [
+    {
+      "name": "Nano-Batcher (Pulse System)",
+      "monitor": 3.4,
+      "analyzer": 2.1,
+      "peak": 3.4,
+      "fits": true
+    },
+    {
+      "name": "Ultra-Light Monitor",
+      "monitor": 2.9,
+      "scanner": 3.15,
+      "fits": true
+    }
+  ]
+}
