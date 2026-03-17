@@ -1,6 +1,6 @@
 {
   "name": "PHANTOM Framework",
-  "version": "0.2.0-phase0",
+  "version": "0.2.1-phase0",
   "description": "Invisible. Unstoppable. Undetectable.",
   "author": "Claude (Godlike AI Operator)",
   "bitburner_version": "2.8.1",
@@ -63,6 +63,15 @@
   ],
   
   "changelog": {
+    "0.2.1-phase0": {
+      "date": "2026-03-17",
+      "changes": [
+        "HOTFIX: Fixed deploy-phantom.js state directory creation",
+        "HOTFIX: Fixed lib/math.js grow formula (serverGrowth calculation)",
+        "HOTFIX: Fixed tools/test-formulas.js RAM overflow in weaken test",
+        "All Phase 0 tests should now complete without errors"
+      ]
+    },
     "0.2.0-phase0": {
       "date": "2026-03-17",
       "changes": [
@@ -88,6 +97,7 @@
   
   "notes": [
     "PHASE 0: Validation phase - measure before build",
+    "v0.2.1: Critical bugs fixed - tests should complete",
     "Test formulas, timing, and RAM before architecture decision",
     "Next: ÉTAPE 3 - Early batcher (architecture TBD based on results)"
   ]

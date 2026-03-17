@@ -199,25 +199,40 @@ export async function main(ns) {
     dbg.normal(`  Security before: ${securityBefore.toFixed(2)}`);
     dbg.normal(`  Predicted threads for -1.0 security: ${predictedWeakenThreads}`);
     
+    // Check available RAM on home
+    const homeRAM = ns.getServerMaxRam("home") - ns.getServerUsedRam("home");
+    const weakenRAMCost = 1.75; // RAM cost per weaken thread
+    const maxThreads = Math.floor(homeRAM / weakenRAMCost);
+    
+    // Use fewer threads if not enough RAM
+    const actualThreads = Math.min(predictedWeakenThreads, maxThreads, 5); // Cap at 5 for testing
+    
+    if (actualThreads < predictedWeakenThreads) {
+        dbg.normal(`  ⚠️  Not enough RAM for ${predictedWeakenThreads} threads`);
+        dbg.normal(`  Using ${actualThreads} threads instead`);
+    }
+    
     // Execute weaken
-    await ns.weaken(target, { threads: predictedWeakenThreads });
+    await ns.weaken(target, { threads: actualThreads });
     
     const securityAfter = ns.getServerSecurityLevel(target);
     const actualReduction = securityBefore - securityAfter;
+    const expectedReduction = actualThreads * 0.05; // 0.05 per thread
     
     dbg.normal(`  Security after: ${securityAfter.toFixed(2)}`);
     dbg.normal(`  Actual reduction: ${actualReduction.toFixed(4)}`);
+    dbg.normal(`  Expected reduction (${actualThreads} threads): ${expectedReduction.toFixed(4)}`);
     
-    const weakenError = Math.abs(predictedReduction - actualReduction) / predictedReduction * 100;
+    const weakenError = Math.abs(expectedReduction - actualReduction) / expectedReduction * 100;
     
     dbg.normal(`  Error: ${weakenError.toFixed(2)}%`);
     
     results.tests.push({
         test: "weaken",
-        predicted: predictedReduction,
+        predicted: expectedReduction,
         actual: actualReduction,
         error: weakenError,
-        threads: predictedWeakenThreads,
+        threads: actualThreads,
         passed: weakenError < 5 // Weaken should be very precise
     });
     

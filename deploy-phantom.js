@@ -173,7 +173,7 @@ export async function main(ns) {
     
     // Step 4: Initialize state directory
     ns.print("⏳ Step 4/4: Initializing state directory...");
-    await ns.write("/state/.gitkeep", "# PHANTOM state directory\n# Files here are generated at runtime", "w");
+    await ns.write("/state/README.txt", "PHANTOM state directory - Runtime JSON files generated here", "w");
     ns.print("   ✅ /state/ directory ready");
     ns.print("");
     
