@@ -1,0 +1,42 @@
+{
+  "target": "n00dles",
+  "timestamp": "2026-03-17T23:29:39.779Z",
+  "player": {
+    "hacking": 1,
+    "hackingMult": 1
+  },
+  "initialState": {
+    "money": 95473.70406474503,
+    "maxMoney": 1750000,
+    "security": 1.014,
+    "minSecurity": 1,
+    "hackReq": 1,
+    "serverGrowth": 3000
+  },
+  "tests": [
+    {
+      "test": "hack",
+      "predicted": 7217.729166666667,
+      "actual": 0,
+      "error": 0,
+      "threads": 1,
+      "passed": true
+    },
+    {
+      "test": "grow",
+      "predicted": 2959684.826007096,
+      "actual": 106025.32822887531,
+      "error": 2691.4884824671967,
+      "threads": 1,
+      "passed": false
+    },
+    {
+      "test": "weaken",
+      "predicted": 0.05,
+      "actual": 0.018000000000000016,
+      "error": 63.99999999999997,
+      "threads": 1,
+      "passed": false
+    }
+  ]
+}
