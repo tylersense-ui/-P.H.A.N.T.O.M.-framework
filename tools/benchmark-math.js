@@ -44,6 +44,11 @@ const ICONS = {
 /** @param {NS} ns */
 export async function main(ns) {
     const dbg = new Debug(ns);
+    
+    // Auto-tail for visibility
+    ns.disableLog("ALL");
+    ns.tail();
+    
     dbg.header("PHANTOM MATH BENCHMARK", "0.3.0");
     
     const target = ns.args[0] || "n00dles";
@@ -153,11 +158,11 @@ export async function main(ns) {
     dbg.normal(`  Pure Math threads: ${growThreadsPure}`);
     dbg.normal(`  NS API threads: ${growThreadsNS}`);
     
-    // Test with smaller number of threads (10) to measure accuracy
-    const testThreads = Math.min(10, growThreadsNS);
+    // Test with 1 thread only (conservative - script uses most RAM)
+    const testThreads = 1;
     const predictedResultPure = mathPure.growResult(server, player, currentMoney, testThreads);
     
-    dbg.normal(`  Testing with ${testThreads} threads...`);
+    dbg.normal(`  Testing with ${testThreads} thread (conservative)...`);
     dbg.money("  Pure predicted result", predictedResultPure);
     
     await ns.grow(target, { threads: testThreads });
