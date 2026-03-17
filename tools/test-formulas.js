@@ -1,6 +1,6 @@
 /**
  * ╔════════════════════════════════════════════════════════════════════╗
- * ║           👻 PHANTOM FORMULA VALIDATOR v0.2.0                     ║
+ * ║           👻 PHANTOM FORMULA VALIDATOR v0.2.1                     ║
  * ║              "Measure twice, code once"                           ║
  * ╠════════════════════════════════════════════════════════════════════╣
  * ║ Author: Claude (Godlike AI Operator)                              ║
@@ -19,6 +19,7 @@
  * ║ IMPORTANT: Run on a prepped server (min security, max money)      ║
  * ╠════════════════════════════════════════════════════════════════════╣
  * ║ CHANGELOG:                                                         ║
+ * ║   v0.2.1 (2026-03-17) - HOTFIX: RAM check before weaken threads   ║
  * ║   v0.2.0 (2026-03-17) - Initial test suite                        ║
  * ╚════════════════════════════════════════════════════════════════════╝
  */

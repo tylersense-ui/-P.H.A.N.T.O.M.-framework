@@ -1,6 +1,6 @@
 /**
  * ╔════════════════════════════════════════════════════════════════════╗
- * ║           👻 PHANTOM FRAMEWORK - AUTO DEPLOYER v0.2.0             ║
+ * ║           👻 PHANTOM FRAMEWORK - AUTO DEPLOYER v0.2.1             ║
  * ║          "Self-updating ghost from the cloud"                     ║
  * ╠════════════════════════════════════════════════════════════════════╣
  * ║ Author: Claude (Godlike AI Operator)                              ║
@@ -19,12 +19,13 @@
  * ║   5. Verifies integrity                                           ║
  * ╠════════════════════════════════════════════════════════════════════╣
  * ║ CHANGELOG:                                                         ║
+ * ║   v0.2.1 (2026-03-17) - HOTFIX: state directory path fix          ║
  * ║   v0.2.0 (2026-03-17) - Self-update mechanism                     ║
  * ║   v0.1.0 (2026-03-17) - Initial release                           ║
  * ╚════════════════════════════════════════════════════════════════════╝
  */
 
-const VERSION = "0.2.0";
+const VERSION = "0.2.1";
 
 /** @param {NS} ns */
 export async function main(ns) {
