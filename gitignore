@@ -1,9 +1,5 @@
 # PHANTOM Framework - Git Ignore
 
-# State files (runtime data, not versioned)
-/state/*.json
-/state/*.txt
-
 # Keep the state directory structure
 !/state/.gitkeep
 
