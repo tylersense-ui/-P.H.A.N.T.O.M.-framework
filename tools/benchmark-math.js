@@ -25,7 +25,7 @@
  */
 
 import { Debug } from "/lib/debug.js";
-import { formatMoney, formatTime, formatPercent, formatNumber } from "/lib/format.js";
+import * as fmt from "/lib/format.js";
 import * as mathPure from "/lib/math-pure.js";
 import * as mathNS from "/lib/math-ns.js";
 
@@ -78,7 +78,7 @@ export async function main(ns) {
     dbg.normal(`${ICONS.GHOST} Player Hacking: ${player.hacking}`);
     dbg.normal(`${ICONS.CHART} Server State:`);
     dbg.money("  Money", server.currentMoney);
-    dbg.normal(`  Max Money: ${formatMoney(server.maxMoney)}`);
+    dbg.normal(`  Max Money: ${fmt.money(server.maxMoney)}`);
     dbg.normal(`  Security: ${server.currentSecurity.toFixed(2)} / ${server.minSecurity}`);
     dbg.normal(`  Growth Rate: ${server.serverGrowth}`);
     dbg.separator();
@@ -101,8 +101,8 @@ export async function main(ns) {
     const hackPercentPure = mathPure.hackPercent(server, player);
     const hackPercentNS = mathNS.hackPercent(ns, target);
     
-    dbg.normal(`  Pure Math: ${formatPercent(hackPercentPure)}`);
-    dbg.normal(`  NS API:    ${formatPercent(hackPercentNS)}`);
+    dbg.normal(`  Pure Math: ${fmt.percent(hackPercentPure)}`);
+    dbg.normal(`  NS API:    ${fmt.percent(hackPercentNS)}`);
     
     // Execute actual hack to measure reality
     const moneyBefore = ns.getServerMoneyAvailable(target);
@@ -112,7 +112,7 @@ export async function main(ns) {
     const actualPercent = actualStolen / server.maxMoney;
     
     dbg.money("  Actual stolen", actualStolen);
-    dbg.normal(`  Actual percent: ${formatPercent(actualPercent)}`);
+    dbg.normal(`  Actual percent: ${fmt.percent(actualPercent)}`);
     
     const pureError = Math.abs(hackPercentPure - actualPercent) / actualPercent * 100;
     const nsError = Math.abs(hackPercentNS - actualPercent) / actualPercent * 100;
@@ -146,8 +146,8 @@ export async function main(ns) {
     const growThreadsPure = mathPure.growThreads(server, player, currentMoney, targetMoney);
     const growThreadsNS = mathNS.growThreads(ns, target, growthMultiplier);
     
-    dbg.normal(`  Current: ${formatMoney(currentMoney)}`);
-    dbg.normal(`  Target: ${formatMoney(targetMoney)}`);
+    dbg.normal(`  Current: ${fmt.money(currentMoney)}`);
+    dbg.normal(`  Target: ${fmt.money(targetMoney)}`);
     dbg.normal(`  Multiplier needed: ${growthMultiplier.toFixed(2)}x`);
     dbg.separator();
     dbg.normal(`  Pure Math threads: ${growThreadsPure}`);
@@ -200,15 +200,15 @@ export async function main(ns) {
         const purePredicted = test.pureFn(server, player);
         const nsPredicted = test.nsFn(ns, target);
         
-        dbg.normal(`    Pure: ${formatTime(purePredicted)}`);
-        dbg.normal(`    NS API: ${formatTime(nsPredicted)}`);
+        dbg.normal(`    Pure: ${fmt.time(purePredicted)}`);
+        dbg.normal(`    NS API: ${fmt.time(nsPredicted)}`);
         
         // Measure actual time
         const startTime = Date.now();
         await test.actualFn(target);
         const actualTime = Date.now() - startTime;
         
-        dbg.normal(`    Actual: ${formatTime(actualTime)}`);
+        dbg.normal(`    Actual: ${fmt.time(actualTime)}`);
         
         const pureError = Math.abs(purePredicted - actualTime) / actualTime * 100;
         const nsError = Math.abs(nsPredicted - actualTime) / actualTime * 100;
