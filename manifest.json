@@ -1,6 +1,6 @@
 {
   "name": "PHANTOM Framework",
-  "version": "0.1.0",
+  "version": "0.2.0-phase0",
   "description": "Invisible. Unstoppable. Undetectable.",
   "author": "Claude (Godlike AI Operator)",
   "bitburner_version": "2.8.1",
@@ -20,10 +20,34 @@
       "required": true
     },
     {
+      "path": "/lib/math.js",
+      "description": "HGW formulas and calculations (0GB RAM)",
+      "ram_cost": 0.0,
+      "required": true
+    },
+    {
       "path": "/tools/scanner.js",
       "description": "Network cartography tool",
       "ram_cost": 3.0,
       "required": true
+    },
+    {
+      "path": "/tools/test-formulas.js",
+      "description": "Formula validation tool",
+      "ram_cost": 2.5,
+      "required": false
+    },
+    {
+      "path": "/tools/benchmark-timing.js",
+      "description": "Timing benchmark tool",
+      "ram_cost": 2.0,
+      "required": false
+    },
+    {
+      "path": "/tools/ram-profiler.js",
+      "description": "RAM profiling tool",
+      "ram_cost": 1.5,
+      "required": false
     }
   ],
   
@@ -34,10 +58,22 @@
     "/managers",
     "/tools",
     "/ui",
-    "/state"
+    "/state",
+    "/tmp"
   ],
   
   "changelog": {
+    "0.2.0-phase0": {
+      "date": "2026-03-17",
+      "changes": [
+        "Phase 0: Validation & Measurement",
+        "Added lib/math.js - HGW formulas (to be validated)",
+        "Added tools/test-formulas.js - Formula accuracy testing",
+        "Added tools/benchmark-timing.js - Timing validation",
+        "Added tools/ram-profiler.js - RAM budget analysis",
+        "Architecture decision pending test results"
+      ]
+    },
     "0.1.0": {
       "date": "2026-03-17",
       "changes": [
@@ -51,8 +87,8 @@
   },
   
   "notes": [
-    "ÉTAPE 2: Scanner complet pour découverte environnement",
-    "Next: ÉTAPE 3 - Early batcher (proto-HWGW)",
-    "Architecture: Nano-Batcher pulse-based (blueprint validated)"
+    "PHASE 0: Validation phase - measure before build",
+    "Test formulas, timing, and RAM before architecture decision",
+    "Next: ÉTAPE 3 - Early batcher (architecture TBD based on results)"
   ]
 }
