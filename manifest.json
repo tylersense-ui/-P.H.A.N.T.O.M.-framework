@@ -1,0 +1,58 @@
+{
+  "name": "PHANTOM Framework",
+  "version": "0.1.0",
+  "description": "Invisible. Unstoppable. Undetectable.",
+  "author": "Claude (Godlike AI Operator)",
+  "bitburner_version": "2.8.1",
+  "release_date": "2026-03-17",
+  
+  "files": [
+    {
+      "path": "/lib/debug.js",
+      "description": "Multi-level debug system (0GB RAM)",
+      "ram_cost": 0.0,
+      "required": true
+    },
+    {
+      "path": "/lib/format.js",
+      "description": "Formatting utilities (0GB RAM)",
+      "ram_cost": 0.0,
+      "required": true
+    },
+    {
+      "path": "/tools/scanner.js",
+      "description": "Network cartography tool",
+      "ram_cost": 3.0,
+      "required": true
+    }
+  ],
+  
+  "directories": [
+    "/lib",
+    "/core",
+    "/workers",
+    "/managers",
+    "/tools",
+    "/ui",
+    "/state"
+  ],
+  
+  "changelog": {
+    "0.1.0": {
+      "date": "2026-03-17",
+      "changes": [
+        "Initial release",
+        "Debug system (lib/debug.js)",
+        "Format library (lib/format.js)",
+        "Network scanner (tools/scanner.js)",
+        "Manifest tracking system"
+      ]
+    }
+  },
+  
+  "notes": [
+    "ÉTAPE 2: Scanner complet pour découverte environnement",
+    "Next: ÉTAPE 3 - Early batcher (proto-HWGW)",
+    "Architecture: Nano-Batcher pulse-based (blueprint validated)"
+  ]
+}
