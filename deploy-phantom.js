@@ -33,8 +33,8 @@ export async function main(ns) {
   // ═══════════════════════════════════════════════
   // CONFIGURATION (À MODIFIER)
   // ═══════════════════════════════════════════════
-  const GITHUB_USER = "VOTRE_USERNAME";  // ← CHANGER ICI
-  const GITHUB_REPO = "VOTRE_REPO";      // ← CHANGER ICI
+  const GITHUB_USER = "tylersense-ui";  // ← CHANGER ICI
+  const GITHUB_REPO = "-P.H.A.N.T.O.M.-framework";      // ← CHANGER ICI
   const BRANCH = "main";
   
   const BASE_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${BRANCH}`;
