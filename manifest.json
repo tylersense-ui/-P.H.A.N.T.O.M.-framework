@@ -19,14 +19,5 @@
     "/tools/scanner.js",
     "/tools/test-formulas.js",
     "/tools/benchmark-math.js"
-  ],
-  "state_files": [
-    "/state/.gitkeep",
-    "/state/network.json",
-    "/state/target.json",
-    "/state/batcher-mode.json",
-    "/state/formula-validation.json",
-    "/state/timing-benchmark.json",
-    "/state/math-benchmark.json"
   ]
 }
