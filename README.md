@@ -1,193 +1,172 @@
-# 👻 PHANTOM Framework
+# 👻 P.H.A.N.T.O.M. Framework v0.4.0
 
-> **"Invisible. Unstoppable. Undetectable."**
+**Protocol for Hacking And Network Total Orchestration Management**
 
-Professional Bitburner automation framework designed for optimal performance from BN1 (8GB RAM) to late-game multi-TB setups.
-
----
-
-## 🎯 Philosophy
-
-PHANTOM doesn't command from a central point. **It replicates.**
-
-Unlike traditional orchestrator-heavy frameworks that consume 5+ GB RAM on coordination alone, PHANTOM uses a **pulse-based, distributed architecture** where:
-- Each server becomes an autonomous node
-- Central "analyzer" runs ephemerally (calculates, then dies to free RAM)
-- Lightweight "monitor" coordinates via JSON files (2.8GB max)
-- Workers are ultra-minimal (1.7GB each)
-
-**Result:** Maximum throughput from minimal footprint.
+Framework d'automatisation Bitburner évolutif avec architecture modulaire.
 
 ---
 
-## 📦 Current Release: v0.1.0 (ÉTAPE 2)
+## 🎯 Features
 
-### ✅ Implemented
-- **Scanner Tool** (`tools/scanner.js`)
-  - Full network cartography (BFS)
-  - Server stats collection
-  - Target recommendations (early/mid/late)
-  - JSON export to `/state/network.json`
-  - Beautiful tail UI
+### v0.4.0 - Early Batcher
+- ✅ **Boot séquence** avec killall global
+- ✅ **Auto-nuke daemon** (rooter réseau automatiquement)
+- ✅ **Monitor orchestrator** (choisit le bon batcher)
+- ✅ **Micro batcher** (WGH simple + FFD packing)
+- ✅ **FFD packing** (utilisation optimale RAM réseau 90%+)
+- ✅ **Target selection** intégrée (meilleure cible toutes les 5min)
+- ✅ **Architecture évolutive** (micro → proto → hwgw)
 
-- **Core Libraries**
-  - `lib/debug.js` - Multi-level debug system (0-3)
-  - `lib/format.js` - Formatting utilities (0GB RAM)
+---
 
-### 🚧 In Progress
-- ÉTAPE 3: Early-game batcher (proto-HWGW)
+## 📁 Structure
 
-### 📋 Roadmap
-- ÉTAPE 4: Mid-game proto-batcher
-- ÉTAPE 5: Late-game full HWGW batch system
-- ÉTAPE 6: Ultimate optimization
+```
+/
+├── boot.js                    # Point d'entrée unique
+├── manifest.json              # Tracking fichiers
+│
+├── /core/                     # Daemons système
+│   ├── autonuke.js           # Auto-root réseau
+│   └── monitor.js            # Orchestrateur
+│
+├── /batchers/                 # Batchers évolutifs
+│   ├── micro.js              # Early (8GB home)
+│   ├── proto.js              # Mid (64GB+ home) [TODO]
+│   └── hwgw.js               # Late (256GB+ home) [TODO]
+│
+├── /workers/                  # Workers minimalistes
+│   ├── h.js                  # Hack (1.7GB)
+│   ├── g.js                  # Grow (1.7GB)
+│   └── w.js                  # Weaken (1.7GB)
+│
+├── /lib/                      # Bibliothèques
+│   ├── debug.js              # Debug multi-niveaux
+│   ├── format.js             # Formatters
+│   ├── math-ns.js            # Formules NS API (production)
+│   ├── math-pure.js          # Formules approximatives (éducation)
+│   ├── math-shared.js        # Constantes
+│   └── ffd.js                # FFD packing algorithm
+│
+├── /tools/                    # Utilities
+│   ├── scanner.js            # Network scan
+│   ├── test-formulas.js      # Formula validation
+│   └── benchmark-math.js     # Math comparison
+│
+└── /state/                    # Runtime data (JSON)
+    ├── network.json          # Scan réseau
+    ├── target.json           # Cible actuelle
+    ├── batcher-mode.json     # Batcher actif
+    └── *.json                # Autres données
+```
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. Clone or Download
+### 1. Déploiement initial
+
 ```bash
-git clone https://github.com/[YOUR_USERNAME]/phantom-bitburner.git
-cd phantom-bitburner
+# Dans le jeu Bitburner
+wget https://raw.githubusercontent.com/VOTRE_REPO/main/deploy-phantom.js deploy-phantom.js
+run deploy-phantom.js
 ```
 
-### 2. Deploy to Bitburner
+### 2. Lancement
 
-**In-game terminal:**
-```
-wget https://raw.githubusercontent.com/[YOUR_USERNAME]/phantom-bitburner/main/deploy-phantom-v0.1.0.js deploy.js
-run deploy.js
+```bash
+run boot.js
 ```
 
-**Note:** Edit `GITHUB_USER` variable in `deploy.js` first!
-
-### 3. Run Network Scanner
-```
-run tools/scanner.js --debug 1
-```
-
-Outputs:
-- Live tail window with network analysis
-- JSON export at `/state/network.json`
+C'est tout ! Le framework démarre automatiquement.
 
 ---
 
-## 📁 Architecture
+## 📊 RAM Budget (Early Game)
 
+**Home (8GB)** :
 ```
-/
-├── manifest.json              # Version tracking
-├── deploy-phantom-v0.1.0.js   # Auto-deployer
-│
-├── /lib/                      # 0GB RAM libraries (pure logic)
-│   ├── debug.js               # Debug system
-│   └── format.js              # Formatting utils
-│
-├── /core/                     # Core logic (future)
-│   ├── analyzer.js            # Ephemeral calculator (>6GB)
-│   └── monitor.js             # Persistent coordinator (~2.8GB)
-│
-├── /workers/                  # Atomic workers (future)
-│   ├── h.js                   # Hack worker (1.7GB)
-│   ├── g.js                   # Grow worker (1.7GB)
-│   └── w.js                   # Weaken worker (1.7GB)
-│
-├── /managers/                 # Resource managers (future)
-│   ├── server-manager.js
-│   ├── hacknet-manager.js
-│   └── target-selector.js
-│
-├── /tools/                    # Utility scripts
-│   └── scanner.js             # Network scanner (~3GB)
-│
-└── /state/                    # Runtime data (JSON files)
-    └── network.json           # Auto-generated scan data
+autonuke.js  : 2.5GB (daemon)
+monitor.js   : 4.5GB (daemon)
+──────────────────────
+TOTAL        : 7.0GB / 8GB ✅
 ```
 
----
-
-## 🎓 Design Principles
-
-### 1. **Zero Hallucination**
-Only uses documented Bitburner v2.8.1 APIs. No invented functions.
-
-### 2. **Modular from Day 1**
-Each component can be tested, replaced, or upgraded independently.
-
-### 3. **RAM-Conscious**
-- Libraries: 0GB (pure logic, no `ns.*` calls)
-- Workers: Minimal (single operation per script)
-- Orchestration: Ephemeral (calculate → save → die)
-
-### 4. **Git-First Workflow**
-All development happens in version control. Deploy via `wget` from GitHub.
-
-### 5. **Beautiful by Default**
-Professional ASCII headers, colored logs, formatted metrics, toast notifications.
+**Réseau (workers)** :
+- Workers déployés via FFD sur tous serveurs rootés
+- Utilisation : 90%+ de la RAM réseau
+- Pas de workers sur home (réservé orchestration)
 
 ---
 
-## 🛠️ Development Standards
+## 🔄 Évolution Automatique
 
-Every file includes:
-- ✅ ASCII art header with version
-- ✅ Author, repo URL, RAM cost
-- ✅ Usage examples and changelog
-- ✅ Full JSDoc comments
-- ✅ Debug level support (0-3)
-- ✅ Toast notifications for key events
-- ✅ Icons for visual clarity (✅ ❌ ⚠️ 💰 🌐 ⚡)
+Le framework évolue automatiquement selon vos ressources :
 
----
+### Early Game (micro.js)
+- **Conditions** : 8GB home, < 10M$, < 100 hacking
+- **Stratégie** : WGH simple loop, FFD packing
+- **Target** : Dynamic (n00dles → foodnstuff → joesguns...)
 
-## 📊 Current Status
+### Mid Game (proto.js) [TODO]
+- **Conditions** : 64GB+ home, 10M-1B$, 100-500 hacking
+- **Stratégie** : HWGW timing basique (200ms spacer)
 
-**BitNode:** BN1.1 (Source Genesis)  
-**Source-Files:** None (first run)  
-**Phase:** ÉTAPE 2 - Environment Discovery
-
-**Completed:**
-- [x] Formation (study game mechanics)
-- [x] Framework name selection (PHANTOM)
-- [x] Network scanner implementation
-
-**Next:**
-- [ ] Collect scan data from operator
-- [ ] Design early-game batcher
-- [ ] Implement proto-HWGW loop
+### Late Game (hwgw.js) [TODO]
+- **Conditions** : 256GB+ home, 1B+$, 500+ hacking
+- **Stratégie** : Batches synchronisés (20ms spacer)
 
 ---
 
-## 🤝 Contributing
+## 📝 Logs & Monitoring
 
-This is an AI-driven development project. The operator (human) executes commands, Claude (AI) writes code.
+```bash
+# Voir l'orchestrateur
+tail monitor.js
 
-**Workflow:**
-1. Claude designs and codes
-2. Operator pushes to GitHub
-3. In-game deployment via `deploy.js`
-4. Operator reports results (logs, screenshots)
-5. Claude iterates based on real data
+# Voir auto-nuke
+tail autonuke.js
 
----
-
-## 📜 License
-
-MIT License - Built for the Bitburner community
+# Voir batcher actif
+tail micro.js
+```
 
 ---
 
-## 🎯 Philosophy Quote
+## 🛠️ Development
 
-> *"There is a difference between knowing the path and walking the path."*  
-> — Morpheus (adapted for PHANTOM)
+### Ajouter un nouveau batcher
 
-**PHANTOM walks the path. Invisibly.**
+1. Créer `/batchers/votre-batcher.js`
+2. Modifier `core/monitor.js` → fonction `detectBestBatcher()`
+3. Tester avec `run boot.js`
+
+### Debugging
+
+Tous les scripts supportent le système debug intégré (voir `/lib/debug.js`).
 
 ---
 
-**Version:** 0.1.0  
-**Author:** Claude (Godlike AI Operator)  
-**Bitburner:** v2.8.1  
-**Status:** Active Development
+## 📜 Changelog
+
+Voir [CHANGELOG.md](CHANGELOG.md)
+
+---
+
+## 📖 Documentation
+
+- **Bible du Hacker** : [Bible_du_hacker.md](Bible_du_hacker.md)
+- **BN1 Roadmap** : [BN1_ROADMAP.md](BN1_ROADMAP.md)
+- **NS API Reference** : [NS_API_REFERENCE.md](NS_API_REFERENCE.md)
+
+---
+
+## 👻 Credits
+
+**Author** : Claude (Godlike AI Operator)  
+**Version** : 0.4.0 - Early Batcher  
+**Game** : Bitburner v2.8.1
+
+---
+
+*"Je connais le kung fu." - Neo*

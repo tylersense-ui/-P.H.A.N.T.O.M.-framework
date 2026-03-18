@@ -1,134 +1,32 @@
 {
-  "name": "PHANTOM Framework",
-  "version": "0.3.0-benchmark",
-  "description": "Invisible. Unstoppable. Undetectable.",
-  "author": "Claude (Godlike AI Operator)",
-  "bitburner_version": "2.8.1",
-  "release_date": "2026-03-17",
-  
+  "version": "0.4.0-early-batcher",
+  "timestamp": "2025-01-XX",
+  "description": "Early batcher with FFD packing + evolutionary architecture",
   "files": [
-    {
-      "path": "/lib/debug.js",
-      "description": "Multi-level debug system (0GB RAM)",
-      "ram_cost": 0.0,
-      "required": true
-    },
-    {
-      "path": "/lib/format.js",
-      "description": "Formatting utilities (0GB RAM)",
-      "ram_cost": 0.0,
-      "required": true
-    },
-    {
-      "path": "/lib/math-shared.js",
-      "description": "Shared game constants (0GB RAM)",
-      "ram_cost": 0.0,
-      "required": true
-    },
-    {
-      "path": "/lib/math-pure.js",
-      "description": "Pure math formulas - approximate (0GB RAM)",
-      "ram_cost": 0.0,
-      "required": true
-    },
-    {
-      "path": "/lib/math-ns.js",
-      "description": "NS API wrappers - precise (~0.40GB RAM)",
-      "ram_cost": 0.4,
-      "required": true
-    },
-    {
-      "path": "/tools/scanner.js",
-      "description": "Network cartography tool",
-      "ram_cost": 3.0,
-      "required": true
-    },
-    {
-      "path": "/tools/test-formulas.js",
-      "description": "Formula validation tool (FIXED serverGrowth)",
-      "ram_cost": 2.5,
-      "required": false
-    },
-    {
-      "path": "/tools/benchmark-timing.js",
-      "description": "Timing benchmark tool",
-      "ram_cost": 2.0,
-      "required": false
-    },
-    {
-      "path": "/tools/benchmark-math.js",
-      "description": "Math comparison: Pure vs NS vs Reality",
-      "ram_cost": 3.5,
-      "required": false
-    },
-    {
-      "path": "/tools/ram-profiler.js",
-      "description": "RAM profiling tool",
-      "ram_cost": 1.5,
-      "required": false
-    }
+    "/boot.js",
+    "/core/autonuke.js",
+    "/core/monitor.js",
+    "/batchers/micro.js",
+    "/lib/debug.js",
+    "/lib/format.js",
+    "/lib/math-shared.js",
+    "/lib/math-pure.js",
+    "/lib/math-ns.js",
+    "/lib/ffd.js",
+    "/workers/h.js",
+    "/workers/g.js",
+    "/workers/w.js",
+    "/tools/scanner.js",
+    "/tools/test-formulas.js",
+    "/tools/benchmark-math.js"
   ],
-  
-  "directories": [
-    "/lib",
-    "/core",
-    "/workers",
-    "/managers",
-    "/tools",
-    "/ui",
-    "/state",
-    "/tmp"
-  ],
-  
-  "changelog": {
-    "0.3.0-benchmark": {
-      "date": "2026-03-17",
-      "changes": [
-        "REFACTOR: Split math.js into math-shared, math-pure, math-ns",
-        "NEW: lib/math-shared.js - Game constants (0GB)",
-        "NEW: lib/math-pure.js - Approximate formulas (0GB, ~91% timing error)",
-        "NEW: lib/math-ns.js - NS API wrappers (0.4GB, precise)",
-        "NEW: tools/benchmark-math.js - Scientific comparison tool",
-        "FIX: tools/test-formulas.js - Added serverGrowth to server object",
-        "Benchmark will determine which math library to use for production"
-      ]
-    },
-    "0.2.1-phase0": {
-      "date": "2026-03-17",
-      "changes": [
-        "HOTFIX: Fixed deploy-phantom.js state directory creation",
-        "HOTFIX: Fixed lib/math.js grow formula (serverGrowth calculation)",
-        "HOTFIX: Fixed tools/test-formulas.js RAM overflow in weaken test",
-        "All Phase 0 tests should now complete without errors"
-      ]
-    },
-    "0.2.0-phase0": {
-      "date": "2026-03-17",
-      "changes": [
-        "Phase 0: Validation & Measurement",
-        "Added lib/math.js - HGW formulas (to be validated)",
-        "Added tools/test-formulas.js - Formula accuracy testing",
-        "Added tools/benchmark-timing.js - Timing validation",
-        "Added tools/ram-profiler.js - RAM budget analysis",
-        "Architecture decision pending test results"
-      ]
-    },
-    "0.1.0": {
-      "date": "2026-03-17",
-      "changes": [
-        "Initial release",
-        "Debug system (lib/debug.js)",
-        "Format library (lib/format.js)",
-        "Network scanner (tools/scanner.js)",
-        "Manifest tracking system"
-      ]
-    }
-  },
-  
-  "notes": [
-    "PHASE 0 COMPLETE: Math libraries split for benchmarking",
-    "v0.3.0: Run tools/benchmark-math.js to compare Pure vs NS API",
-    "Decision: Use math-ns.js for production (precise, ~0.4GB acceptable)",
-    "Next: ÉTAPE 3 - Early batcher with validated formulas"
+  "state_files": [
+    "/state/.gitkeep",
+    "/state/network.json",
+    "/state/target.json",
+    "/state/batcher-mode.json",
+    "/state/formula-validation.json",
+    "/state/timing-benchmark.json",
+    "/state/math-benchmark.json"
   ]
 }
