@@ -1,0 +1,69 @@
+{
+  "target": "n00dles",
+  "timestamp": "2026-03-17T23:53:38.180Z",
+  "player": {
+    "hacking": 2,
+    "hackingMult": 1
+  },
+  "server": {
+    "hostname": "n00dles",
+    "currentSecurity": 1.002,
+    "minSecurity": 1,
+    "hackReq": 1,
+    "maxMoney": 1750000,
+    "currentMoney": 105587.9737499312,
+    "serverGrowth": 3000
+  },
+  "benchmarks": [
+    {
+      "test": "hack_percent",
+      "pure": 0.004124916666666667,
+      "ns": 0.004124916666666667,
+      "actual": 0,
+      "pureError": null,
+      "nsError": null,
+      "winner": "Pure Math"
+    },
+    {
+      "test": "grow_threads",
+      "pure": 1,
+      "ns": 27,
+      "testThreads": 1,
+      "predictedResult": 3273227.1862478675,
+      "actualResult": 117257.29562455336,
+      "pureError": 2691.491283176467
+    },
+    {
+      "test": "weaken_time",
+      "pure": 14970.119521912351,
+      "ns": 193275,
+      "actual": 193275,
+      "pureError": 92.25449772504858,
+      "nsError": 0,
+      "winner": "NS API"
+    },
+    {
+      "test": "grow_time",
+      "pure": 11976.095617529882,
+      "ns": 154615.38461538465,
+      "actual": 154638,
+      "pureError": 92.25539930836543,
+      "nsError": 0.01462472653251242,
+      "winner": "NS API"
+    },
+    {
+      "test": "hack_time",
+      "pure": 3742.5298804780878,
+      "ns": 47406.6037735849,
+      "actual": 47407,
+      "pureError": 92.10553319029238,
+      "nsError": 0.0008357972769797112,
+      "winner": "NS API"
+    }
+  ],
+  "ramCosts": {
+    "math-pure.js": 0,
+    "math-ns.js": 0.4,
+    "this_benchmark": 6
+  }
+}
